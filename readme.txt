@@ -1,1 +1,0 @@
-Any compilation, installation or running instructions should be included in a “readme” file.
