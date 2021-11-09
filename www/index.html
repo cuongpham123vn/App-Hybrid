@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>RentalZ-Rental Apartment Finder</title>
+</head>
+
+<body class="ui-mobile-viewport ui-reveal-a">
+    <!-- PAGE "HOME" -->
+    <div data-role="page" id="page-home">
+        <div data-role="panel" id="panel" data-display="reveal"
+            class="ui-panel ui-panel-position-left ui-panel-display-reveal ui-body-inherit ui-panel-animate ui-panel-closed">
+            <div class="ui-panel-inner">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <img src="img/logo1.png" width="75%" alt="logo-icon">
+                </div>
+                <ul data-role="listview" class="ui-listview">
+                    <li data-icon="false" class="ui-first-child">
+                        <a href="#page-home" data-transition="none" class="active ui-btn ui-alt-icon ui-icon-home ui-nodisc-icon ui-btn-icon-left">Home</a>
+                    </li>
+                </ul>
+                <ul data-role="listview" class="ui-listview">
+                    <li data-icon="false" class="ui-first-child">
+                        <a href="#page-create" data-transition="none" class="ui-btn ui-alt-icon ui-icon-plus ui-nodisc-icon ui-btn-icon-left">New Account</a>
+                    </li>
+                </ul>
+                <ul data-role="listview" class="ui-listview">
+                    <li data-icon="false" class="ui-first-child">
+                        <a href="#page-list" data-transition="none" class="ui-btn  ui-alt-icon ui-icon-grid ui-nodisc-icon ui-btn-icon-left">List Account</a>
+                    </li>
+                </ul>
+                <ul data-role="listview" class="ui-listview">
+                    <li data-icon="false" class="ui-first-child">
+                        <a href="#page-search" data-transition="none" class="ui-btn ui-alt-icon ui-icon-search ui-nodisc-icon ui-btn-icon-left">Search</a>
+                    </li>
+                </ul>
+                <ul data-role="listview" class="ui-listview">
+                    <li data-icon="false" class="ui-first-child">
+                        <a href="#page-about" data-transition="none" class="ui-btn ui-alt-icon ui-icon-info ui-nodisc-icon ui-btn-icon-left">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-hide-during-focus role="banner"
+            class="ui-header ui-bar-inherit ui-header-fixed slideshown">
+            <div style="margin-left: 5px; margin-right: 5px;">
+                <a style="border: none; background-color: transparent;" id="panel-open"
+                    class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon">Panel</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <img id="Logo" src="img/logo1.png">
+            <table>
+                <tbody>
+                    <tr> 
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-alt-icon ui-icon-plus ui-nodisc-icon ui-btn-icon-top">
+                            New Account</a>
+
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-alt-icon ui-icon-grid ui-nodisc-icon ui-btn-icon-top">
+                            List Account</a>
+
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-alt-icon ui-icon-search ui-nodisc-icon ui-btn-icon-top">Search</a>
+
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-alt-icon ui-icon-info ui-nodisc-icon ui-btn-icon-top">About Us</a>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist active">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "CREATE NEW ACCOUNT" -->
+    <div data-role="page" id="page-create">
+        <div data-role="header" data-position="fixed">
+            <div style="margin-left: 5px;">
+                <a style="border: none; background-color: transparent;" href="#page-home" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon">Back to list</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h1>Create Account</h1>
+            <!-- Registration Form -->
+            <form id="frm-register">
+                <span id="error" style="color: red;"></span>
+                <label style="color: orange"><b>Fullname</b></label>
+                <input type="text" placeholder="Enter your fullname..." id="username" required>
+                <label style="color: orange"><b>Telephone</b></label>
+                <input type="number" placeholder="Enter your phone number..." id="phone" min="0" max="999999999" required>
+
+                <label style="color: orange"><b>Address</b></label>
+                <input type="text" placeholder="Enter your address..." id="address" required>
+                <label style="color: orange"><b>Select your address</b></label>
+                <select id="city" required=""></select>
+                <select id="district" required=""></select>
+                <select id="ward" required=""></select>
+
+                <label style="color: orange"><b>Select types</b></label>
+                <select id="type" required=""></select>
+                <label style="color: orange"><b>Select furnitures</b></label>
+                <select id="furniture" optional=""></select>
+
+                <label style="color: orange"><b>Number bedrooms</b></label>
+                <input type="number" placeholder="Add number of bedrooms..." id="bedroom" required min="0" max="10">
+                <label style="color: orange"><b>Monthly rent price</b></label>
+                <input type="number" placeholder="Enter price for rent a month..." id="price" required min="10">
+                <label style="color: orange"><b>Name of reporter</b></label>
+                <input type="text" placeholder="Enter your reporter..." id="reporter" required>
+
+                    <br/>
+                <div>
+                    <button type="submit">Create New Account</button>
+                </div>
+
+            </form>
+
+            <!-- Confirm Registration -->
+            <form data-role="popup" id="frm-confirm" class="ui-content ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-overlay-theme="a">
+                <table style="text-align:left">
+                    <tbody>
+                        <h1>Confirm Account</h1>
+                        <tr>
+                            <th>Fullname</th>
+                            <td><input type="text" id="username" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td><input type="text" id="phone" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td><input type="text" id="address" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td><input type="text" id="city" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>District</th>
+                            <td><input type="text" id="district" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Ward</th>
+                            <td><input type="text" id="ward" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td><input type="text" id="type" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Furniture</th>
+                            <td><input type="text" id="furniture" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Bedrooms</th>
+                            <td><input type="text" id="bedroom" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Monthly Price</th>
+                            <td><input type="text" id="price" readonly></td>
+                        </tr>
+                        <tr>
+                            <th>Name Reporter</th>
+                            <td><input type="text" id="reporter" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a class="ui-btn ui-corner-all" data-rel="back" href="#page-create">Cancel</a>
+                    </div>
+
+                    <div class="ui-block-b">
+                        <input type="submit" value="Confirm">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon active">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "ACCOUNT LIST" -->
+    <div data-role="page" id="page-list">
+        <div data-role="header" data-position="fixed">
+            <div style="margin-left: 5px;">
+                <a style="border: none; background-color: transparent;" href="#page-home" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon">Back to list</a>
+            </div>
+        </div>
+
+        <div data-role="main">
+            <h1>Account List</h1>
+            <!--Display Account List-->
+            <ul id="list-account" data-role="listview" class="ui-nodisc-icon ui-alt-icon"></ul>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon active">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "ACCOUNT DETAILS" -->
+    <div data-role="page" id="page-detail">
+        <div data-role="header" data-position="fixed">
+            <div style="margin-left: 5px;">
+                <a style="border: none; background-color: transparent;" href="#page-list" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon">Back to list</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <!-- DISPLAY DETAILS -->
+           <div style="display:flex; justify-content:center">
+            <img src="img/logo1.png" width="50%">
+           </div>
+           
+            <form id="frm-detail" class='ui-content'>
+
+                <label for="id"><img src='img/icon-info.png' height='20px'>&nbsp;<b>Fullname</b></label>
+                <input type="text" id="username" readonly><br>
+
+                <label for="id"><img src='img/icon-call.png' height='20px'>&nbsp;<b>Phone</b></label>
+                <input type="text" id="phone" readonly><br>
+
+                <label for="id"><img src='img/icon-address.png' height='20px'>&nbsp;<b>Address</b></label>
+                <input type="text" id="address" readonly>
+                <input type="text" id="ward" readonly>
+                <input type="text" id="district" readonly>
+                <input type="text" id="city" readonly><br>
+             
+                <label for="id"><img src='img/icon-type.png' height='20px'>&nbsp;<b>Type</b></label>
+                <input type="text" id="type" readonly><br>
+
+                <label for="id"><img src='img/icon-furniture.png' height='20px'>&nbsp;<b>Furniture</b></label>
+                <input type="text" id="furniture" readonly><br>
+
+                <label for="id"><img src='img/icon-bedroom.png' height='20px'>&nbsp;<b>Bedrooms</b></label>
+                <input type="text" id="bedroom" readonly><br>
+
+                <label for="id"><img src='img/icon-bills.png' height='20px'>&nbsp;<b>Price</b></label>
+                <input type="text" id="price" readonly><br>
+
+                <label for="id"><img src='img/icon-reporter.png' height='20px'>&nbsp;<b>Reporter</b></label>
+                <input type="text" id="reporter" readonly><br>
+
+                <label for="id"><img src='img/icon-dateadd.png' height='20px'>&nbsp;<b>DateAdded</b></label>
+                <input type="text" id="datetime" readonly><br>
+
+            </form>
+
+
+            <!-- BUTTONS "UPDATE" & "DELETE" -->
+            <div class="ui-grid-a">
+                <div class="ui-block-a" style="padding-right: 5px;">
+
+                    <a href="#frm-update" data-rel="popup" data-position-to="window" data-transition="pop"
+                        class="ui-btn ui-corner-all ui-btn-b">Update</a>
+                </div>
+
+                <div class="ui-block-b" style="padding-left: 5px;">
+                    <a href="#frm-delete" data-rel="popup" data-position-to="window" data-transition="pop"
+                        class="ui-btn ui-corner-all ui-btn-b">Delete</a>
+                </div>
+            </div>
+
+
+            <form id="frm-update" data-role="popup" class="ui-content ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-overlay-theme="a">
+                <div class="header">
+                    <h1>Update Account</h1>
+                </div>
+
+                <div data-role='main' class='ui-content'>
+                    <label style="color: orange"><b>Fullname</b></label>
+                    <input type='text' placeholder='Username' id='username'>
+                    <label style="color: orange"><b>Telephone</b></label>
+                    <input type="number" placeholder="Phone" id="phone">
+
+                    <label style="color: orange"><b>Address</b></label>
+                    <input type='text' placeholder='Address' id='address'>
+                    <select id="city"></select>
+                    <select id="district"></select>
+                    <select id="ward"></select>
+
+                    <label style="color: orange"><b>Type</b></label>
+                    <select id="type" optional=""></select>
+                    <label style="color: orange"><b>Furniture</b></label>
+                    <select id="furniture" optional=""></select>
+
+                    <label style="color: orange"><b>Bedrooms</b></label>
+                    <input type="number" placeholder="Number of Bedrooms" id="bedroom" optional>
+                    <label style="color: orange"><b>Price</b></label>
+                    <input type="number" placeholder="Monthly rent Price" id="price" optional>
+                    <label style="color: orange"><b>Reporter</b></label>
+                    <input type="text" placeholder="Name of Reporter" id="reporter" optional>
+
+                </div>
+
+                <fieldset class='ui-grid-a'>
+                    <div class='ui-block-a'>
+                        <a class='ui-btn ui-shadow ui-corner-all' data-rel='back'>Cancel</a>
+                    </div>
+
+                    <div class='ui-block-b'>
+                        <a class='orange ui-btn ui-shadow ui-corner-all' id='btn-update'>Save</a>
+                    </div>
+                </fieldset>
+
+            </form>
+
+            <form data-role="popup" id="frm-delete">
+                <div data-role="header">
+                    <h1 style="padding-top: 20px;">Delete Comment?</h1>
+                </div>
+
+                <div role="main" class="ui-content">
+                    <h3>Are you sure you want to delete all comment?</h3>
+                    <p>This action cannot be undone.</p>
+                    <br>
+
+                    <p><em>Please type "<strong>confirm delete</strong>" to delete all account.</em></p>
+                    <input type="text" id="txt-delete">
+
+                    <div style="text-align: right;">
+                        <a class="ui-btn ui-shadow ui-corner-all ui-btn-inline" data-rel="back">Cancel</a>
+                        <button type="submit" class="orange ui-btn ui-shadow ui-corner-all ui-btn-inline ui-disabled"
+                            id="btn-delete">Delete</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- COMMENT AREA -->
+            
+            <form data-role="popup" id="frm-deletes">
+                <div data-role="header">
+                    <h1 style="padding-top: 20px;">Delete Account?</h1>
+                </div>
+
+                <div role="main" class="ui-content">
+                    <h3>Are you sure you want to delete all comments?</h3>
+                    <br>
+
+                    <p><em>Please type "<strong>delete</strong>" to delete all comments.</em></p>
+                    <input type="text" id="txt-deletes">
+
+                    <div style="text-align: right;">
+                        <a class="ui-btn ui-corner-all ui-btn-inline" data-rel="back">Cancel</a>
+                        <button type="submit" class="orange ui-btn ui-shadow ui-corner-all ui-btn-inline ui-disabled"
+                            id="btn-deletes">Confirm Delete</button>
+                    </div>
+                </div>
+            </form>
+       
+            <form id="frm-comment" style="margin-top: 1px;">
+                <textarea id="txt-comment" placeholder="Please enter your comment here..."></textarea>
+                <div style="display:flex; justify-content:space-between">
+                    <button type="submit" class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">Comment</button>
+                    <a href="#frm-deletes" data-rel="popup" data-position-to="window" data-transition="pop"
+                    class="ui-btn ui-btn-inline ui-corner-all ui-btn-b">Delete Comment</a>
+                </div>
+                <div id="list-comment"></div>
+            </form>
+            
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon active">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "SEARCH" -->
+    <div data-role="page" id="page-search">
+        <div data-role="header" data-position="fixed">
+            <div style="margin-left: 5px;">
+                <a style="border: none; background-color: transparent;" href="#page-home" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon">Back to list</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h1>Search Information</h1>
+            <form id="frm-search" class='ui-content'>
+                <input type='text' placeholder='Fullname...' id='username'>
+                <input type="number" placeholder="Phone..." id="phone"><br>
+
+                <input type="text" placeholder="Address..." id="address">
+                <select id="city"></select>
+                <select id="district"></select>
+                <select id="ward"></select> <br>
+
+                <select id="type"></select>
+                <select id="furniture"></select><br>
+
+                <input type="number" placeholder="Number of Bedrooms..." id="bedroom">
+                <input type="text" placeholder="Name of Reporter..." id="reporter">
+                <input type="number" placeholder="Monthly rent Price..." id="price"><br>
+                
+                <button type="submit">Search</button>
+                <p><input type="button" value="Refresh" onClick="refresh(this)"></p>
+                <ul id="list-account" class='ui-content'data-role="listview" class="ui-nodisc-icon ui-alt-icon"></ul>
+            </form>
+
+         
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon active">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE "ABOUT" -->
+    <div data-role="page" id="page-about">
+        <div data-role="header" data-position="fixed">
+            <div style="margin-left: 5px;">
+                <a style="border: none; background-color: transparent;" href="#page-home" data-transition="none"
+                    class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon">Back to list</a>
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <h1>Rental Apartments Finder</h1>
+            <img src="img/logo1.png" width="200px" style="margin-bottom: 5px;">
+
+            <h2>Contact Us</h2>
+            <p style="margin-bottom: 7px;">Author</p>
+            <strong>
+                <p style="margin-top: 20px; font-size: 15px">Pham Ngoc Cuong</p>
+            </strong>
+            <p style="margin-bottom: 7px; margin-top: 25px;">Email</p>
+            <strong><em><a href="mailto:cuongpngcs18568@fpt.edu.vn">cuongpngcs18568@fpt.edu.vn</a></em></strong>
+            <p style="margin-bottom: 7px; margin-top: 25px;">Phone</p>
+            <strong><em><a href="tel:+84858233174">(84) 85 8233 174</a></em></strong>
+            <strong>
+                <p style="margin-top: 30px; font-size: 15px"><em>Copyright &#169; 2021 Jack Peter. All rights
+                        reserved.</em></p>
+            </strong>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#page-home" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-create" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon">Create Account</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-list" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon">Account List</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-search" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-search ui-btn-icon-notext ui-nodisc-icon">Search</a>
+                    </li>
+
+                    <li>
+                        <a href="#page-about" data-transition="none"
+                            class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon active">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/address.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
